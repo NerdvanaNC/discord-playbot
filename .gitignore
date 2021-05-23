@@ -9,3 +9,6 @@ venv
 
 # Secrets
 .env
+
+# Extras
+quotes.txt

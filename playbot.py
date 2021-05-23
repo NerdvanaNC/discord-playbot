@@ -48,23 +48,23 @@ async def on_message(message):
   t_quotes = os.environ.get('T_QUOTES').split(", ")
 
   if message.content.find("nerd") != -1:
-    await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf Nerd")
+    await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf AngerIssues")
     return
 
   if message.content.find("bacchi") != -1 or message.content.find("bachhi") != -1:
-    await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf Bacchi")
+    await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf TubeBatti")
     return
 
   if message.content.find("nova") != -1:
-    await message.channel.send("> \"" + j_quotes[(random.randint(0, (len(j_quotes) - 1)))] + "\"\n - Nauja urf Nova")
+    await message.channel.send("> \"" + j_quotes[(random.randint(0, (len(j_quotes) - 1)))] + "\"\n - Nauja urf F")
     return
 
   if message.content.find("95") != -1:
-    await message.channel.send("> \"" + s_quotes[(random.randint(0, (len(s_quotes) - 1)))] + "\"\n - Jangababa urf 95")
+    await message.channel.send("> \"" + s_quotes[(random.randint(0, (len(s_quotes) - 1)))] + "\"\n - JangaBaba urf Picchanve")
     return
 
   if message.content.find("thakur") != -1:
-    await message.channel.send("> \"" + t_quotes[(random.randint(0, (len(t_quotes) - 1)))] + "\"\n - Thakurain urf Chinki")
+    await message.channel.send("> \"" + t_quotes[(random.randint(0, (len(t_quotes) - 1)))] + "\"\n - Thakurain urf GymChad")
     return
 
   if message.content.find("gate") != -1:
