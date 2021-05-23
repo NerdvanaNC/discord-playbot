@@ -1,5 +1,6 @@
 import discord
 import os
+import random
 from textwrap import dedent
 from dotenv import load_dotenv
 
@@ -21,7 +22,7 @@ async def on_message(message):
   # Help message
   if message.content == "$help":
     await message.channel.send(dedent("""
-        `PlayBot helps people looking for players find them.
+        ```PlayBot helps people looking for players find them.
         ----
         Commands:
         > $help - displays this text.
@@ -36,10 +37,38 @@ async def on_message(message):
 
         I recommend disallowing the @mention ability for general users so they
         cannot abuse the PlayBot role by @mentioning it w/o being "signed up" to
-        receive alerts.`
+        receive alerts.```
       """))
     return
 
+  n_quotes = os.environ.get('N_QUOTES').split(", ")
+  b_quotes = os.environ.get('B_QUOTES').split(", ")
+  j_quotes = os.environ.get('J_QUOTES').split(", ")
+  s_quotes = os.environ.get('S_QUOTES').split(", ")
+  t_quotes = os.environ.get('T_QUOTES').split(", ")
+
+  if message.content.find("nerd") != -1:
+    await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf Nerd")
+    return
+
+  if message.content.find("bacchi") != -1:
+    await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf Bacchi")
+    return
+
+  if message.content.find("nova") != -1:
+    await message.channel.send("> \"" + j_quotes[(random.randint(0, (len(j_quotes) - 1)))] + "\"\n - Nauja urf Nova")
+    return
+
+  if message.content.find("95") != -1:
+    await message.channel.send("> \"" + s_quotes[(random.randint(0, (len(s_quotes) - 1)))] + "\"\n - Jangababa urf 95")
+    return
+
+  if message.content.find("thakur") != -1:
+    await message.channel.send("> \"" + t_quotes[(random.randint(0, (len(t_quotes) - 1)))] + "\"\n - Thakurain urf Chinki")
+    return
+
+  if message.content.find("gate") != -1:
+    await message.channel.send("> DARWAZA HOTA HAI BHEN****")
 
   # Call message
   if message.content == "$play" or message.content == "$find":
