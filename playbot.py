@@ -51,7 +51,7 @@ async def on_message(message):
     await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf Nerd")
     return
 
-  if message.content.find("bacchi") != -1 or message.content.find("bachhi"):
+  if message.content.find("bacchi") != -1 or message.content.find("bachhi") != -1:
     await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf Bacchi")
     return
 
