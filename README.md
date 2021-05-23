@@ -1,5 +1,4 @@
 # Discord Playbot
-----
 ### PlayBot helps people find players on Discord.
 
 **Commands**
