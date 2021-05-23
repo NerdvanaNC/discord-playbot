@@ -80,7 +80,7 @@ async def on_message(message):
       \nPlease make a role with the word \"PlayBot\" in its name for PlayBot to use.")
       return
   else:
-    await message.channel.send("Sorry, I don't understand. Type \"$help\" for help.")
+    return
 
 # Run PlayBot
 client.run(DISCORD_BOT_TOKEN)
