@@ -23,8 +23,8 @@ A Discord bot I'm making in Python to alert server members when a player is look
 
 > Of course the entire bot is useless if people mute `@mentions` on the server, but I'll worry about that at a later date.
 
-See requirements.txt for package requirements.
-----
+See `requirements.txt` for package requirements.
+
 Passion project for my small server of 20-ish people.
 
-© Nickunj Chopra (https://nickunjchopra.com) | *Copy karo magar pyaar se* (Attributions Required).
+© Nickunj Chopra (https://nickunjchopra.com) | *Copy karo magar pyaar se* **(Attributions Required)**
