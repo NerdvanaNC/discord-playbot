@@ -1,6 +1,7 @@
 import discord
 import os
 import random
+import copy
 from textwrap import dedent
 from dotenv import load_dotenv
 
@@ -44,12 +45,34 @@ async def on_message(message):
   n_quotes = os.environ.get('N_QUOTES').split(", ")
   b_quotes = os.environ.get('B_QUOTES').split(", ")
   j_quotes = os.environ.get('J_QUOTES').split(", ")
-  s_quotes = os.environ.get('S_QUOTES').split(", ")
   t_quotes = os.environ.get('T_QUOTES').split(", ")
+  s_quotes = os.environ.get('S_QUOTES').split(", ")
+  n_temp = copy.deepcopy(n_quotes)
+  b_temp = []
+  j_temp = []
+  t_temp = []
+  s_temp = []
 
   if message.content.find("nerd") != -1:
-    await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf AngerIssues")
+    # deepcopy n_quotes > n_temp
+    # print quote if n_temp !empty
+    if len(n_temp) > 0:
+      # temp (deepcopied) list of quotes
+      # removes a quote if it prints it
+      chosenQuote = n_temp.pop(random.randint(0, (len(n_temp) - 1)))
+    else:
+      # if the temp (deepcopied) list is empty
+      # just print a random quote from the original list
+      # and clear() and re-deepcopy temp list
+      chosenQuote = n_quotes[(random.randint(0, (len(n_temp) - 1)))]
+      n_temp = copy.deepcopy(n_quotes)
+    
+    await message.channel.send("> \"" + chosenQuote + "\"\n - Nerdybhaiya urf AngerIssues")
     return
+
+
+    # await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf AngerIssues")
+    # return
 
   if message.content.find("bacchi") != -1 or message.content.find("bachhi") != -1:
     await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf TubeBatti")
