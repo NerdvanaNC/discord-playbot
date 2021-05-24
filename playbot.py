@@ -47,32 +47,18 @@ async def on_message(message):
   j_quotes = os.environ.get('J_QUOTES').split(", ")
   t_quotes = os.environ.get('T_QUOTES').split(", ")
   s_quotes = os.environ.get('S_QUOTES').split(", ")
-  n_temp = copy.deepcopy(n_quotes)
-  b_temp = []
-  j_temp = []
-  t_temp = []
-  s_temp = []
 
   if message.content.find("nerd") != -1:
-    # deepcopy n_quotes > n_temp
-    # print quote if n_temp !empty
-    if len(n_temp) > 0:
-      # temp (deepcopied) list of quotes
-      # removes a quote if it prints it
-      chosenQuote = n_temp.pop(random.randint(0, (len(n_temp) - 1)))
+    randex = random.randint(0, (len(n_quotes) - 1))
+    chosenQuote = n_quotes[randex]
+    msghistory = await message.channel.history(limit=2).flatten()
+    if msghistory[1].content.find(chosenQuote) != -1:
+      chosenQuote = n_quotes[(randex + 1)]
+      await message.channel.send("> \"" + chosenQuote + "\"\n - Nerdybhaiya urf AngerIssues")
+      return
     else:
-      # if the temp (deepcopied) list is empty
-      # just print a random quote from the original list
-      # and clear() and re-deepcopy temp list
-      chosenQuote = n_quotes[(random.randint(0, (len(n_temp) - 1)))]
-      n_temp = copy.deepcopy(n_quotes)
-    
-    await message.channel.send("> \"" + chosenQuote + "\"\n - Nerdybhaiya urf AngerIssues")
-    return
-
-
-    # await message.channel.send("> \"" + n_quotes[(random.randint(0, (len(n_quotes) - 1)))] + "\"\n - Nerdybhaiya urf AngerIssues")
-    # return
+      await message.channel.send("> \"" + chosenQuote + "\"\n - Nerdybhaiya urf AngerIssues")
+      return
 
   if message.content.find("bacchi") != -1 or message.content.find("bachhi") != -1:
     await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf TubeBatti")
