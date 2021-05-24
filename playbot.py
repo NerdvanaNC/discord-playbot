@@ -61,20 +61,56 @@ async def on_message(message):
       return
 
   if message.content.find("bacchi") != -1 or message.content.find("bachhi") != -1:
-    await message.channel.send("> \"" + b_quotes[(random.randint(0, (len(b_quotes) - 1)))] + "\"\n - BacchiBhaiyu urf TubeBatti")
-    return
+    randex = random.randint(0, (len(b_quotes) - 1))
+    chosenQuote = b_quotes[randex]
+    msghistory = await message.channel.history(limit=2).flatten()
+    if msghistory[1].content.find(chosenQuote) != -1:
+      chosenQuote = b_quotes[(randex + 1)]
+      await message.channel.send("> \"" + chosenQuote + "\"\n - BacchiBhaiyu urf TubeBatti")
+      return
+    else:
+      await message.channel.send("> \"" + chosenQuote + "\"\n - BacchiBhaiyu urf TubeBatti")
+      return
 
   if message.content.find("nova") != -1:
-    await message.channel.send("> \"" + j_quotes[(random.randint(0, (len(j_quotes) - 1)))] + "\"\n - Nauja urf F")
-    return
+    randex = random.randint(0, (len(j_quotes) - 1))
+    chosenQuote = j_quotes[randex]
+    msghistory = await message.channel.history(limit=2).flatten()
+    if msghistory[1].content.find(chosenQuote) != -1:
+      chosenQuote = j_quotes[(randex + 1)]
+      await message.channel.send("> \"" + chosenQuote + "\"\n - Noooja urf GG")
+      return
+    else:
+      await message.channel.send("> \"" + chosenQuote + "\"\n - Noooja urf GG")
+      return
 
   if message.content.find("95") != -1:
-    await message.channel.send("> \"" + s_quotes[(random.randint(0, (len(s_quotes) - 1)))] + "\"\n - JangaBaba urf Picchanve")
-    return
+    randex = random.randint(0, (len(s_quotes) - 1))
+    chosenQuote = s_quotes[randex]
+    msghistory = await message.channel.history(limit=2).flatten()
+    if msghistory[1].content.find(chosenQuote) != -1:
+      chosenQuote = s_quotes[(randex + 1)]
+      await message.channel.send("> \"" + chosenQuote + "\"\n - JangaBaba urf Pichanve")
+      return
+    else:
+      await message.channel.send("> \"" + chosenQuote + "\"\n - JangaBaba urf Pichanve")
+      return
 
   if message.content.find("thakur") != -1:
-    await message.channel.send("> \"" + t_quotes[(random.randint(0, (len(t_quotes) - 1)))] + "\"\n - Thakurain urf GymChad")
-    return
+    randex = random.randint(0, (len(t_quotes) - 1))
+    chosenQuote = t_quotes[randex]
+    msghistory = await message.channel.history(limit=2).flatten()
+    if msghistory[1].content.find(chosenQuote) != -1:
+      chosenQuote = t_quotes[(randex + 1)]
+      await message.channel.send("> \"" + chosenQuote + "\"\n - Thakurain urf GymChad")
+      return
+    else:
+      await message.channel.send("> \"" + chosenQuote + "\"\n - Thakurain urf GymChad")
+      return
+
+    # OLD WAY TO SEND
+    # await message.channel.send("> \"" + t_quotes[(random.randint(0, (len(t_quotes) - 1)))] + "\"\n - Thakurain urf GymChad")
+    # return
 
   if message.content.find("gate") != -1:
     await message.channel.send("> DARWAZA HOTA HAI BHEN****")
