@@ -17,7 +17,7 @@ client = discord.Client()
 @client.event
 async def on_message(message):
   # We don't reply to messages sent by our own bot
-  if message.author == client.user:
+  if message.author == client.user or message.author.id == 471571502249017356:
     return
 
   # Help message
